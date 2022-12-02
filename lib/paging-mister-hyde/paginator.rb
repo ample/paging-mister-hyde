@@ -51,6 +51,7 @@ module PagingMisterHyde
           # Create a new page, set its URL to a paginable path
           page = Jekyll::Page.new(@site, base, dir, path)
           page.instance_variable_set('@url', "#{path_sans_ext}/page/#{page_num}/index.html")
+          page.data['title'] = "#{page.data['title']} | Page #{page_num}"
           decorate_page(page, type, page_num, total_pages, docs)
 
           # Shovel the page
